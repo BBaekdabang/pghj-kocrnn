@@ -112,25 +112,25 @@ def demo(opt):
     
                 # Todo
                 # 1. extract labels from test images
-                with open(opt.label_test, 'r') as f:
-                    lines = f.readlines()
-                    for line in lines:
-                        info = line.split('.png\t')
-                        file_name = info[0] + '.png'
-                        label = info[1].strip() 
-                        if file_name.split('/')[-1] == img_name.split('/')[-1]: break
+#                 with open(opt.label_test, 'r') as f:
+#                     lines = f.readlines()
+#                     for line in lines:
+#                         info = line.split('.png\t')
+#                         file_name = info[0] + '.png'
+#                         label = info[1].strip() 
+#                         if file_name.split('/')[-1] == img_name.split('/')[-1]: break
             
                 # 2. calculate CER
                 # CER: Ground Truth(img_name)를 OCR 출력(pred)로 변환하는데 필요한 최소 문자 수준 작업 수
                 # CER = 100 * [1 - (탈자개수 + 오자개수 + 첨자개수) / 원본글자수]
-                error_num = levenshtein(pred, label, debug=True) # 오자 + 탈자 + 첨자
-                cer = error_num / len(label)                     # 현재 텍스트에 대한 cer
-                total_len += len(label)                          # 전체 텍스트(ground truth)의 길이
-                total_err += error_num                              # 전체 텍스트의 오자+탈자+첨자 수
-                total_cer = total_err / total_len                   # 전체 텍스트에 대한 cer
+#                 error_num = levenshtein(pred, label, debug=True) # 오자 + 탈자 + 첨자
+#                 cer = error_num / len(label)                     # 현재 텍스트에 대한 cer
+#                 total_len += len(label)                          # 전체 텍스트(ground truth)의 길이
+#                 total_err += error_num                              # 전체 텍스트의 오자+탈자+첨자 수
+#                 total_cer = total_err / total_len                   # 전체 텍스트에 대한 cer
 
 #                 print(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}')
-                log.write(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{cer:0.4f}\n')
+                log.write(f'{img_name:25s}\t{pred:15s}\n')
 
             print(f'total CER = {total_cer}')
             log.write(f'total_CER = {total_cer}\n')
