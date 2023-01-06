@@ -91,11 +91,11 @@ def demo(opt):
 
 
             log = open(opt.log_filename, 'a')
-            dashed_line = '-' * 120
-            head = f'{"image_path":25s}\t{"ground_truth":15s}\t{"predicted_labels":15s}\tconfidence score\tcharacter error rate'
+#             dashed_line = '-' * 120
+#             head = f'{"image_path":25s}\t{"ground_truth":15s}\t{"predicted_labels":15s}\tconfidence score\tcharacter error rate'
             
-            print(f'{dashed_line}\n{head}\n{dashed_line}')
-            log.write(f'{dashed_line}\n{head}\n{dashed_line}\n')
+#             print(f'{dashed_line}\n{head}\n{dashed_line}')
+#             log.write(f'{dashed_line}\n{head}\n{dashed_line}\n')
 
             preds_prob = F.softmax(preds, dim=2)
             preds_max_prob, _ = preds_prob.max(dim=2)
@@ -130,7 +130,7 @@ def demo(opt):
 #                 total_cer = total_err / total_len                   # 전체 텍스트에 대한 cer
 
 #                 print(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}')
-                log.write(f'{img_name:25s}\t{pred:15s}\n')
+                log.write(f'{pred:15s}\n')
 
 #             print(f'total CER = {total_cer}')
 #             log.write(f'total_CER = {total_cer}\n')
