@@ -108,7 +108,7 @@ def demo(opt):
                     pred_max_prob = pred_max_prob[:pred_EOS]
 
                 # calculate confidence score (= multiply of pred_max_prob)
-                confidence_score = pred_max_prob.cumprod(dim=0)[-1]
+#                 confidence_score = pred_max_prob.cumprod(dim=0)[-1]
     
                 # Todo
                 # 1. extract labels from test images
@@ -129,8 +129,8 @@ def demo(opt):
                 total_err += error_num                              # 전체 텍스트의 오자+탈자+첨자 수
                 total_cer = total_err / total_len                   # 전체 텍스트에 대한 cer
 
-                print(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}')
-                log.write(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}\n')
+#                 print(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}')
+                log.write(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{cer:0.4f}\n')
 
             print(f'total CER = {total_cer}')
             log.write(f'total_CER = {total_cer}\n')
