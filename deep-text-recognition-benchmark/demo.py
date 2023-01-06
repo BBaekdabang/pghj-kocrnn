@@ -132,8 +132,8 @@ def demo(opt):
 #                 print(f'{img_name:25s}\t{label:15s}\t{pred:15s}\t{confidence_score:0.4f}\t{cer:0.4f}')
                 log.write(f'{img_name:25s}\t{pred:15s}\n')
 
-            print(f'total CER = {total_cer}')
-            log.write(f'total_CER = {total_cer}\n')
+#             print(f'total CER = {total_cer}')
+#             log.write(f'total_CER = {total_cer}\n')
             log.close()
 
 if __name__ == '__main__':
